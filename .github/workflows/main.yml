@@ -26,8 +26,12 @@ jobs:
       JWT_SECRET: R2kSUWXmK9rU28EhYxirY0DZ40RTr5ju0ppH7bkCSwXmALwoHh
       NODE_ENV: test
 
+    defaults:
+      run:
+        working-directory: mongo-express-app
+
     steps:
-      - name: ⬇Checkout repo
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Setup Node.js
@@ -42,4 +46,4 @@ jobs:
         run: npm run build
 
       - name: Run tests
-        run: npm run test
+        run: npm test
